@@ -1,0 +1,76 @@
+.bg {
+    /* The image used */
+    background-image: url("logo.png");
+    min-height: 600px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.tophead {
+    text-align: center;
+    color: rgb(25, 77, 140);
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+
+/* Add styles to the form container */
+
+.container {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 400px;
+    padding: 26px;
+    background-color: white;
+}
+
+
+/* Full-width input fields */
+
+input[type=text],
+input[type=number],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Set a style for the submit button */
+
+.btn {
+    background-color: #00BFFF;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.cancelbtn {
+    width: auto;
+    color: white;
+    height: auto;
+    padding: 8px 38px;
+    margin: 10px 15px;
+    background-color: #f44336;
+}
