@@ -18,6 +18,9 @@ body {
     font-size: 17px;
 }
 
+
+/* For grid system for hovering effect */
+
 .topnav a:hover {
     background-color: #ddd;
     color: black;
@@ -30,6 +33,15 @@ body {
 
 .topnav .icon {
     display: none;
+}
+
+
+/* For still item in uppercase and fix margin */
+
+.topnav>div {
+    margin-right: 20px;
+    font: size 0.9em;
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 600px) {
@@ -65,13 +77,4 @@ body {
         justify-content: center;
         text-align: center;
     }
-}
-
-
-/* For still item in uppercase and fix margin */
-
-.topnav>div {
-    margin-right: 20px;
-    font: size 0.9em;
-    text-transform: uppercase;
 }
