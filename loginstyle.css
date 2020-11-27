@@ -10,7 +10,7 @@ html {
 
 .bg-img {
     /* The image used */
-    background-image: url("image1.jpeg");
+    background-image: url("logo.png");
     min-height: 600px;
     /* Center and scale the image nicely */
     background-position: center;
@@ -29,6 +29,14 @@ html {
     max-width: 300px;
     padding: 26px;
     background-color: white;
+    color: rgb(25, 77, 140);
+}
+
+.tophead {
+    text-align: center;
+    color: rgb(25, 77, 140);
+    margin: 24px 0 12px 0;
+    position: relative;
 }
 
 
