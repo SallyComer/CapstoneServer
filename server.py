@@ -32,7 +32,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/css")
             self.end_headers()
             self.wfile.write(bytes(read_text("." + self.path), "utf-8"))
-        elif self.path == "/index.html":
+        elif self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
@@ -42,16 +42,6 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_header("Content-type", "image/jpg")
             self.end_headers()
             self.wfile.write(bytes(read_chirp()))
-        elif self.path == "/signup.html":
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(bytes(read_text("./signup.html"), "utf-8"))
-        elif self.path == "/styles.css":
-            self.send_response(200)
-            self.send_header("Content-type", "text/css")
-            self.end_headers()
-            self.wfile.write(bytes(read_text("./styles.css"), "utf-8"))
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/html")
