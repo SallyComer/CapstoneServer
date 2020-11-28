@@ -22,7 +22,12 @@ def read_chirp():
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
-        if self.path == "/index.html":
+        if self.path.endswith(".html"):
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes(read_text("." + self.path), "utf-8"))
+        elif self.path == "/index.html":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
