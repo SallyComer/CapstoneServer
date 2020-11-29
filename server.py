@@ -13,8 +13,8 @@ def read_text(path):
     f.close()
     return s
 
-def read_chirp():
-    f = open("chirp.jpg", "rb")
+def read_image(img):
+    f = open(img, "rb")
     s = f.read()
     f.close()
     return s
@@ -22,26 +22,36 @@ def read_chirp():
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
-        if self.path == "/index.html":
+        if self.path.endswith(".html"):
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes(read_text("." + self.path), "utf-8"))
+        elif self.path.endswith(".css"):
+            self.send_response(200)
+            self.send_header("Content-type", "text/css")
+            self.end_headers()
+            self.wfile.write(bytes(read_text("." + self.path), "utf-8"))
+        elif self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes(read_text("./index.html"), "utf-8"))
-        elif self.path == "/chirp.jpg":
+        elif self.path.endswith(".png"):
+            self.send_response(200)
+            self.send_header("Content-type", "image/png")
+            self.end_headers()
+            self.wfile.write(bytes(read_image("." + self.path)))
+        elif self.path.endswith(".jpg"):
             self.send_response(200)
             self.send_header("Content-type", "image/jpg")
             self.end_headers()
-            self.wfile.write(bytes(read_chirp()))
-        elif self.path == "/signup.html":
+            self.wfile.write(bytes(read_image("." + self.path)))
+        elif self.path.endswith(".jpeg"):
             self.send_response(200)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "image/jpeg")
             self.end_headers()
-            self.wfile.write(bytes(read_text("./signup.html"), "utf-8"))
-        elif self.path == "/styles.css":
-            self.send_response(200)
-            self.send_header("Content-type", "text/css")
-            self.end_headers()
-            self.wfile.write(bytes(read_text("./styles.css"), "utf-8"))
+            self.wfile.write(bytes(read_image("." + self.path)))
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/html")
